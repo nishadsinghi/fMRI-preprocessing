@@ -13,12 +13,12 @@ Output:
   - Creates a file output.nii.gz which contains slice time corrected image corrected to the target time.
 
 ## Spatial Smoothing
-INPUT:
+Input:
   - Image File name
   - FWHM(in mm)(say k)
   - Output File name (say output.nii.gz)
 
-OUTPUT:
+Output:
   - Creates a file output.nii.gz spatially smoothed to k mm
   
 ## Required Packages
