@@ -1,32 +1,11 @@
 # fMRI_PreProcessing
-Perform slice time correction (using linear interpolation) and spatial smoothing of functional-MRI images in R.
+Perform slice time correction (using linear interpolation), temporal filtering and spatial smoothing of functional-MRI images using python.
 Input file must be in NIfTI format.
 
-## Slice Time Correction
-Input: 
-  - Image File name
-  - TR
-  - Target Time
-  - Slice time acquisition file
-  - Output File name (say output)
+## Usage:
+`python preproc.py --inputFile --outputFile [optional: --xCoord --yCoord --zCoord --targetTime --lowCutoff --highCutoff --fwhm]`
 
-Run: 
-`Rscript sliceTimeCorrect.R inputFile <FWHM> outputFile`
-
-Output: 
-  - Creates a file output.nii.gz which contains slice time corrected image corrected to the target time.
-
-## Spatial Smoothing
-Input:
-  - Image File name
-  - FWHM(in mm)(say k)
-  - Output File name (say output.nii.gz)
-
-Run:
-`Rscript spatialSmooth.R inputFile <TR> <Target Time> sliceTimeFile outputFileName`
-
-Output:
-  - Creates a file output.nii.gz spatially smoothed to k mm
-  
-## Required Packages
-`oro.nifti`
+  - xCoord, yCoord, zCoord: used to print the timeseries corresponding to this voxel.
+  - targetTime: returns the brain scan for the given time instant using slice time correction.
+  - lowCutoff, highCutoff: used to specify the band-pass filter for temporal filtering of fMRI data
+  - fwhm: FWHM for spatial smoothing using Gaussian kernel.
